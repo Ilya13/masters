@@ -19,8 +19,15 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/navigator.css',
+    	'bootflat/css/bootflat.min.css',
     ];
     public $js = [
+    	'js/cbpHorizontalMenu.min.js',
+    	'js/modernizr.custom.js',
+    	'bootflat/js/icheck.min.js',
+    	'bootflat/js/jquery.fs.selecter.min.js',
+    	'bootflat/js/jquery.fs.stepper.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

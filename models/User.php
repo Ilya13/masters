@@ -35,6 +35,18 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
     /**
+     * Finds user by email
+     *
+     * @param  string      $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+    	$user = parent::findOne(['email' => $email]);
+    	return isset($user) ? new static($user) : null;
+    }
+
+    /**
      * @inheritdoc
      */
     public function getId()
