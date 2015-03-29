@@ -14,55 +14,34 @@ class Navigator extends Widget{
 		$this->html = '<nav id="cbp-hrmenu" class="cbp-hrmenu"><ul>';
 		
 		foreach ($categories as $category){
-			$this->html .= 
-				'<li>
-					<a href="'.$category->link.'">'.$category->title.'</a>
-					<div class="cbp-hrsub">
-						<div class="cbp-hrsub-inner"> 
-				</li>';
+			$this->html .= '<li><a href="'.$category->link.'">'.$category->title.'</a>';
 			
-			foreach ($category->getItems()){
+			if (count($category->getItems()) != 0){
+				$this->html .= '<div class="cbp-hrsub"><div class="cbp-hrsub-inner">';
 				
-			}
-			
-			'<div class="cbp-hrsub">
-								<div class="cbp-hrsub-inner"> 
-									<div>
-										<h4>Learning &amp; Games</h4>
-										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Utilities</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Education</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
-										</ul>
-										<h4>Professionals</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
-									</div>
-								</div><!-- /cbp-hrsub-inner -->
-							</div>'
+				$cnt = 0;
+				foreach ($category->getItems() as $item){
+					if ($cnt == 0){
+						$this->html .= '<div><ul>';
+					}
+					
+					$this->html .= '<li><a href="'.$item->link.'">'.$item->title.'</a></li>';
+				
+					$cnt++;
+					if ($cnt == 4){
+						$this->html .= '</ul></div>';
+						$cnt = 0;
+					}
+				}
+					
+				if ($cnt != 0){
+					$this->html .= '</ul></div>';
+				}
+
+				$this->html .= '</div></div>';
+			}			
+
+			$this->html .= '</li>';
 		}
 		
 		$this->html .= '<li><a href="#">Все категории</a></li></ul></nav>';

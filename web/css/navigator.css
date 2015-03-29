@@ -146,6 +146,7 @@ a:hover {
 .cbp-hrmenu {
 	width: 100%;
 	border-bottom: 4px solid #47a3da;
+	margin-top: 56px;
 }
 
 /* general ul style */
