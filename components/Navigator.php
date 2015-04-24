@@ -2,6 +2,7 @@
 namespace app\components;
 
 use yii\base\Widget;
+use yii\helpers\Html;
 use app\models\Category;
 
 class Navigator extends Widget{
@@ -9,12 +10,12 @@ class Navigator extends Widget{
 	
 	public function init(){
 		parent::init();
-		$categories = Category::getNavigatorCategories();
+		$categories = Category::findNavigatorCategories();
 		
 		$this->html = '<nav id="cbp-hrmenu" class="cbp-hrmenu"><ul>';
 		
 		foreach ($categories as $category){
-			$this->html .= '<li><a href="'.$category->link.'">'.$category->title.'</a>';
+			$this->html .= '<li>'.Html::a($category->title, ['/site/category/', 'id'=>$category->id]);			
 			
 			if (count($category->getItems()) != 0){
 				$this->html .= '<div class="cbp-hrsub"><div class="cbp-hrsub-inner">';
@@ -39,12 +40,11 @@ class Navigator extends Widget{
 				}
 
 				$this->html .= '</div></div>';
-			}			
+			}
 
 			$this->html .= '</li>';
 		}
-		
-		$this->html .= '<li><a href="#">Все категории</a></li></ul></nav>';
+		$this->html .= '<li>'.Html::a('Все категории', ['/site/category', 'id'=>0]).'</li></ul></nav>';
 	}
 	
 	public function run(){

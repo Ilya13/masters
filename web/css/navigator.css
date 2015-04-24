@@ -178,7 +178,7 @@ a:hover {
 }
 
 .cbp-hrmenu > ul > li:LAST-CHILD > a {
-	padding: 0.5em 1em 0.5em 4em;
+	margin-left: 3em;
 }
 
 .cbp-hrmenu > ul > li > a:hover {
@@ -240,6 +240,10 @@ a:hover {
 	.cbp-hrmenu {
 		font-size: 80%;
 	}
+	
+	.cbp-hrmenu > ul > li:LAST-CHILD > a {
+		margin-left: 0em;
+	}
 
 }
 
@@ -278,6 +282,10 @@ a:hover {
 	.cbp-hrsub h4 {
 		padding-top: 0.6em;
 	}
+	
+	.cbp-hrmenu > ul > li:LAST-CHILD > a {
+		margin-left: 0em;
+	}
 
 }
 
@@ -286,6 +294,10 @@ a:hover {
 		width: 100%;
 		float: none;
 		padding: 0 2em;
+	}
+	
+	.cbp-hrmenu > ul > li:LAST-CHILD > a {
+		margin-left: 0em;
 	}
 }
 

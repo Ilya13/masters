@@ -1,12 +1,12 @@
 <?php
-/* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+use yii\helpers\Html;
+
+$this->title = 'Мастерская';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <button type="button" class="btn btn-primary">Описать идею</button>
-        <button type="button" class="btn btn-link">Загрузить фото</button>
+        <?= Html::a('Описать идею', ['/site/order'], ['class'=>'btn btn-primary']) ?>
     </div>
 
     <div class="body-content">

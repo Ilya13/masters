@@ -3,12 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
-use app\models\RegistrationForm;
+use app\forms\LoginForm;
+use app\forms\ContactForm;
+use app\forms\RegistrationForm;
+use app\forms\CategoryForm;
+use app\forms\OrderForm;
 
 class SiteController extends Controller
 {
@@ -90,6 +92,29 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionCategory($id)
+    {
+        $model = new CategoryForm();
+        if ($id == 0){
+        	return $this->render('category', [
+        		'model' => $model,
+        	]);
+        } else {
+        	$model->findCategoryById($id);
+        	return $this->render('subcategory', [
+        		'model' => $model,
+        	]);
+        }
+    }
+    
+    public function actionOrder()
+    {
+    	$model = new OrderForm();
+    	return $this->render('order', [
+    		'model' => $model,
+    	]);
     }
 
     public function actionContact()

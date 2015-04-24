@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
     		'bootflat/css/bootflat.min.css',
     ];
     public $js = [
-    		'js/cbpHorizontalMenu.min.js',
+    		'js/cbpHorizontalMenu.js',
     		'js/modernizr.custom.js',
     		'bootflat/js/icheck.min.js',
     		'bootflat/js/jquery.fs.selecter.min.js',
