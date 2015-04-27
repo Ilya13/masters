@@ -2,7 +2,6 @@
 namespace app\components;
 
 use yii\base\Widget;
-use yii\helpers\Html;
 
 class Thumbnail extends Widget{
 	private $html;
@@ -16,8 +15,10 @@ class Thumbnail extends Widget{
 	
 	public function init(){
 		parent::init();
-		
-		$this->html = "<div class='col-lg-".$this->size."'><div class='thumbnail'>";
+		$this->html = '<div class="col-lg-'.$this->size.'"><div class="thumbnail">';
+		if (isset($this->link)){
+			$this->html .= '<a href='.$this->link.'>';
+		}
 		if (isset($this->img)){
 			$this->html .= "<img class='img-rounded' src='".$this->img."'>";
 		}
@@ -30,13 +31,11 @@ class Thumbnail extends Widget{
 			if (isset($this->text)){
 				$this->html .= "<p>".$this->text."</p>";
 			}
-			if (isset($this->link)){
-				$this->html .= "<p>".$this->link."</p>";
-			}
-			
 			$this->html .= "</div>";
 		}
-		
+		if (isset($this->link)){		
+			$this->html .= "</a>";
+		}
 		$this->html .= "</div></div>";
 	}
 	

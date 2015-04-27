@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use Yii;
+use yii\helpers\Url;
+
 class Category extends \yii\db\ActiveRecord
 {
 	private $items = array();
@@ -36,7 +39,7 @@ class Category extends \yii\db\ActiveRecord
 	
 	public static function findCategories()
 	{
-		return parent::find()->where(['active' => 1, 'level' => 1])->all();
+		return parent::find()->where(['active' => 1, 'level' => 1])->orderBy('order')->all();
 	}
 	
 	private static function findChildrens($elements, $parent)
@@ -63,5 +66,13 @@ class Category extends \yii\db\ActiveRecord
 	public function setItems($items)
 	{
 		$this->items = $items;
-	}	
+	}
+	
+	public function getImage(){
+		return 'img/categories/'.$this->image;
+	}
+	
+	public function getLink(){
+		return Url::toRoute(['/site/category/', 'id' => $this->id]);
+	}
 }

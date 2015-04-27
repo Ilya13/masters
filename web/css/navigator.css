@@ -149,6 +149,10 @@ a:hover {
 	margin-top: 56px;
 }
 
+.cbp-hrsub {
+	z-index: 999;
+}
+
 /* general ul style */
 .cbp-hrmenu ul {
 	margin: 0;
