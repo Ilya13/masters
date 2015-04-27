@@ -10,7 +10,7 @@ use app\forms\LoginForm;
 use app\forms\ContactForm;
 use app\forms\RegistrationForm;
 use app\forms\CategoryForm;
-use app\forms\OrderForm;
+use app\forms\ProjectForm;
 
 class SiteController extends Controller
 {
@@ -109,10 +109,10 @@ class SiteController extends Controller
         }
     }
     
-    public function actionOrder()
+    public function actionProject()
     {
-    	$model = new OrderForm();
-    	return $this->render('order', [
+    	$model = new ProjectForm();
+    	return $this->render('project', [
     		'model' => $model,
     	]);
     }

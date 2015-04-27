@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Model;
 use app\models\Category;
 
-class OrderForm extends Model
+class ProjectForm extends Model
 {
 	public $currentCategory;
 

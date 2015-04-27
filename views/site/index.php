@@ -6,7 +6,7 @@ $this->title = 'Мастерская';
 <div class="site-index">
 
     <div class="jumbotron">
-        <?= Html::a('Описать идею', ['/site/order'], ['class'=>'btn btn-primary']) ?>
+        <?= Html::a('Описать идею', ['/site/project'], ['class'=>'btn btn-primary']) ?>
     </div>
 
     <div class="body-content">
