@@ -10,7 +10,7 @@ use app\forms\LoginForm;
 use app\forms\ContactForm;
 use app\forms\RegistrationForm;
 use app\forms\CategoryForm;
-use app\forms\ProjectForm;
+use app\forms\PostForm;
 
 class SiteController extends Controller
 {
@@ -55,45 +55,6 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    public function actionRegistration()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new RegistrationForm();
-        if ($model->load(Yii::$app->request->post()) && $model->registration()) {
-            return $this->goBack();
-        } else {
-            return $this->render('registration', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
     public function actionCategory($id)
     {
         $model = new CategoryForm();
@@ -107,14 +68,6 @@ class SiteController extends Controller
         		'model' => $model,
         	]);
         }
-    }
-    
-    public function actionProject()
-    {
-    	$model = new ProjectForm();
-    	return $this->render('project', [
-    		'model' => $model,
-    	]);
     }
 
     public function actionContact()

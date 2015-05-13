@@ -46,8 +46,8 @@ $this->registerJs('$(function(){cbpHorizontalMenu.init();});');
             	echo Nav::widget([
             			'options' => ['class' => 'navbar-nav navbar-right'],
             			'items' => [
-            					['label' => 'Вход', 'url' => ['/site/login']],
-            					['label' => 'Регистрация', 'url' => ['/site/registration']],            					
+            					['label' => 'Вход', 'url' => ['/user/login']],
+            					['label' => 'Регистрация', 'url' => ['/user/registration']],            					
             			],
             	]);
             } else {
@@ -55,7 +55,7 @@ $this->registerJs('$(function(){cbpHorizontalMenu.init();});');
 	                'options' => ['class' => 'navbar-nav navbar-right'],
 	                'items' => [
 	                    ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',
-	                            'url' => ['/site/logout'],
+	                            'url' => ['/user/logout'],
 	                            'linkOptions' => ['data-method' => 'post']],
 	                ],
 	            ]);

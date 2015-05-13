@@ -8,11 +8,13 @@ use app\forms\CategoryForm;
 
 class CategoryController extends Controller
 {
-	public function actionSubcategory($title)
+	public function actionSubcategory($id)
 	{
+		$result = new \stdClass();
 		$model = new CategoryForm();
-		$model->findCategoryByTitle($title);
-		$data = CategoryForm::getArrayMap($model->getSubcategories());
-		return json_encode($data);
+		$model->findCategoryById($id);
+		$result->genitive = $model->currentCategory->genitive;
+		$result->data = CategoryForm::getArrayMap($model->getSubcategories());
+		return json_encode($result);
 	}
 }

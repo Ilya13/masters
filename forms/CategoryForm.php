@@ -32,6 +32,6 @@ class CategoryForm extends Model
 	
 	public static function getArrayMap($array)
 	{
-		return array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'), $array);
+		return array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\',\'image\',\'postLink\'));'), $array);
 	}
 }
