@@ -85,4 +85,12 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
     	return 'users';
     }
+    
+    public function getAvatar(){
+    	if (isset($this->avatar) and $this->avatar != null){
+    		return 'img/user/'.$this->avatar;
+    	} else {
+    		return 'img/user/avatar.png';
+    	}
+    }
 }

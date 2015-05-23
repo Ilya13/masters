@@ -10,12 +10,12 @@ class CategoryForm extends Model
 {
 	public $currentCategory;
 	
-	public function findCategoryById($id)
+	public function setCurrentCategoryById($id)
 	{
 		$this->currentCategory = Category::findCategoryById($id);
 	}
 	
-	public function findCategoryByTitle($title)
+	public function setCurrentCategoryByTitle($title)
 	{
 		$this->currentCategory = Category::findCategoryByTitle($title);
 	}

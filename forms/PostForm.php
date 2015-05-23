@@ -24,6 +24,7 @@ class PostForm extends Model
 	{
 		return [
 			[['size', 'material', 'budgetFrom', 'budgetTo'], 'required'],
+			['details', 'string', 'max' => 255],
 		];
 	}
 	
@@ -53,6 +54,9 @@ class PostForm extends Model
 			$post->budgetFrom = $this->budgetFrom;
 			$post->budgetTo = $this->budgetTo;
 			$post->details = $this->details;
+			
+			Yii::info('details: '.$post->details, 'pushNotifications');
+			
 			return $post->save();
 		} else {
 			return false;

@@ -6,9 +6,6 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\components\Navigator;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 AppAsset::register($this);
 $this->registerJs('$(function(){cbpHorizontalMenu.init();});');
 ?>
@@ -54,9 +51,27 @@ $this->registerJs('$(function(){cbpHorizontalMenu.init();});');
             	echo Nav::widget([
 	                'options' => ['class' => 'navbar-nav navbar-right'],
 	                'items' => [
-	                    ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',
-	                            'url' => ['/user/logout'],
-	                            'linkOptions' => ['data-method' => 'post']],
+	                		['label' => Yii::$app->user->identity->username,
+	                		'items' => [
+	                				[
+	                					'label' => 'Проекты',
+	                					'url' => ['/user/projects'],
+	                				],
+	                				[
+	                					'label' => 'Аккаунт',
+	                					'url' => ['/user'],
+	                				],
+	                				[
+	                					'label' => 'Отзывы',
+	                					'url' => ['/user'],
+	                				],
+	                				'<li class="divider"></li>',
+	                				[
+		                				'label' => 'Выход',
+		                				'url' => ['/user/logout'],
+	                					'linkOptions' => ['data-method' => 'post']],
+	                				],
+	                		],
 	                ],
 	            ]);
             }

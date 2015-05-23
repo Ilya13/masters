@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\helpers\Url;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\forms\LoginForm;
@@ -44,7 +45,7 @@ class PostController extends Controller
     	$model = new PostForm();
 		$model->setCategory($category);
     	if ($model->load(Yii::$app->request->post()) && $model->create()) {
-    		return $this->goHome();
+    		$this->redirect(Url::toRoute(['/user/']));
     	} else {
     		return $this->render('create', [
     			'model' => $model,

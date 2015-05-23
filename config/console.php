@@ -18,12 +18,29 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
         'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+    'targets' => [
+        [
+            'class' => 'yii\log\FileTarget',
+            'levels' => ['error', 'warning'],
+        ],
+        [
+            'class' => 'yii\log\FileTarget',
+            'levels' => ['info'],
+            'categories' => ['orders'],
+            'logFile' => '@app/runtime/logs/Orders/requests.log',
+            'maxFileSize' => 1024 * 2,
+            'maxLogFiles' => 20,
+        ],
+        [
+            'class' => 'yii\log\FileTarget',
+            'levels' => ['info'],
+            'categories' => ['pushNotifications'],
+            'logFile' => '@app/runtime/logs/Orders/notification.log',
+            'maxFileSize' => 1024 * 2,
+            'maxLogFiles' => 50,
+        ],
+    ],
         ],
         'db' => $db,
     ],

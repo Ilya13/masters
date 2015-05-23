@@ -15,7 +15,7 @@ class Navigator extends Widget{
 		$this->html = '<nav id="cbp-hrmenu" class="cbp-hrmenu"><ul>';
 		
 		foreach ($categories as $category){
-			$this->html .= '<li>'.Html::a($category->title, ['/site/category/', 'id'=>$category->id]);			
+			$this->html .= '<li><a href="'.$category->getLink().'">'.$category->title.'</a>';			
 			
 			if (count($category->getItems()) != 0){
 				$this->html .= '<div class="cbp-hrsub"><div class="cbp-hrsub-inner">';
@@ -44,7 +44,7 @@ class Navigator extends Widget{
 
 			$this->html .= '</li>';
 		}
-		$this->html .= '<li>'.Html::a('Все категории', ['/site/category', 'id'=>0]).'</li></ul></nav>';
+		$this->html .= '<li>'.Html::a('Все категории', ['/category']).'</li></ul></nav>';
 	}
 	
 	public function run(){

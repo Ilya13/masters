@@ -7,6 +7,8 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\forms\LoginForm;
+use app\forms\UserForm;
+use app\forms\ProjectsForm;
 
 class UserController extends Controller
 {
@@ -44,6 +46,18 @@ class UserController extends Controller
 						'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
 				],
 		];
+	}
+	
+	public function actionProjects()
+	{
+		if (\Yii::$app->user->isGuest) {
+			return $this->goHome();
+		}
+	
+		$model = new ProjectsForm();
+		return $this->render('projects', [
+			'model' => $model,
+		]);
 	}
 	
 	public function actionLogin()

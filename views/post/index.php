@@ -1,6 +1,7 @@
 <?php
 use app\components\Thumbnail;
 use yii\helpers\Url;
+use yii\bootstrap\Progress;
 
 $this->title = "Описать идею";
 $this->registerJs("
@@ -36,7 +37,13 @@ $this->registerJs("
 		});	
 	}", $this::POS_HEAD);
 ?>
-<div class="site-index">
+<div class="post-index">
+	<?php 
+	/*echo Progress::widget([
+			'percent' => 30,
+			'options' => ['id' => 'post-progress']
+	]);*/
+	?>
     <div id="post-content" class="body-content">
         <div id="categories" class="row">
 			<p>Сначала скажите, что вы хотите сделать</p>

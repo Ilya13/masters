@@ -55,21 +55,6 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionCategory($id)
-    {
-        $model = new CategoryForm();
-        if ($id == 0){
-        	return $this->render('category', [
-        		'model' => $model,
-        	]);
-        } else {
-        	$model->findCategoryById($id);
-        	return $this->render('subcategory', [
-        		'model' => $model,
-        	]);
-        }
-    }
-
     public function actionContact()
     {
         $model = new ContactForm();

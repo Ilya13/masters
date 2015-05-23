@@ -51,13 +51,10 @@ $this->registerJs("
 ");
 ?>
 
-<div class="site-post">
-	
-	<div class="row">
-	    
-	    <p>Пожалуйста, заполните данные о заказе:</p>
-	    
-	    <div class="col-lg-5">
+<div class="post-create">
+	<div class="row">	    
+	    <p>Пожалуйста, заполните данные о заказе:</p>	    
+	    <div class="col-md-5">
 		
 		    <?php $form = ActiveForm::begin([
 		        'id' => 'post-form',
@@ -76,16 +73,16 @@ $this->registerJs("
 					
 					<div><label class="control-label" for="postform-budgetfrom">Бюджет</label></div>
 					
-				    <?= $form->field($model, 'budgetFrom', ['options' => ['class' => 'form-range from'], 'template' => '<div class="col-lg-1">{label}</div><div class="col-lg-10">{input}</div>']) ?>
+				    <?= $form->field($model, 'budgetFrom', ['options' => ['class' => 'form-range from'], 'template' => '<div class="col-md-1">{label}</div><div class="col-md-10">{input}</div>']) ?>
 				
-				    <?= $form->field($model, 'budgetTo', ['options' => ['class' => 'form-range to'], 'template' => '<div class="col-lg-1">{label}</div><div class="col-lg-10">{input}</div>']) ?>
+				    <?= $form->field($model, 'budgetTo', ['options' => ['class' => 'form-range to'], 'template' => '<div class="col-md-1">{label}</div><div class="col-md-10">{input}</div>']) ?>
 			
 				</div>
 			
 			    <?= $form->field($model, 'details')->textArea(['rows' => '6']) ?>
 			
 			    <div class="form-group">
-			        <div class="col-lg-offset-1 col-lg-5">
+			        <div class="col-md-offset-1 col-md-5">
 			            <?= Html::submitButton('Далее', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
 			        </div>
 			    </div>
@@ -94,7 +91,7 @@ $this->registerJs("
     	
 		</div>
 	
-		<div id="popover" class="col-lg-5"></div>
+		<div id="popover" class="col-md-5"></div>
 	
     </div>
 </div>

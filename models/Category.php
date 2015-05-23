@@ -73,7 +73,7 @@ class Category extends \yii\db\ActiveRecord
 	}
 	
 	public function getLink(){
-		return Url::toRoute(['/site/category/', 'id' => $this->id]);
+		return Url::toRoute(['/category/', 'id' => $this->id]);
 	}
 	
 	public function getPostLink(){
